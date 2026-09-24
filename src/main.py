@@ -22,4 +22,10 @@ df.columns = column_names
 # Add row names
 row_names = ['S{}'.format(i) for i in range(1, num_rows+1)]
 df.index = row_names
-df.to_csv('raw_score_dataframe.csv', sep=",", index=True, header=True)
+path_variable = "../exported_csv_files/raw_score_dataframe.csv"
+df.to_csv(
+    path_or_buf=path_variable,
+    sep=",",
+    index=True,
+    header=True
+)
