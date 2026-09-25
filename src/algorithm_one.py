@@ -34,6 +34,8 @@ R = the specific maximum score
 import pandas
 import numpy
 
+from src.craft_file_containing_all_possible_combinations import craft_file_containing_all_possible_combinations
+
 path_to_yao_csv_file = "../exported_csv_files/raw_score_dataframe.csv"
 path_to_manual_testing_csv_file = "../exported_csv_files/manual_testing_file.csv"
 
@@ -101,8 +103,13 @@ def algorithm_one(
         for quiz_name in qualified_quizzes_simple:
             print(tab_amount+"\t",quiz_name)
 
+    craft_file_containing_all_possible_combinations(
+        list_of_quizes_that_satify_criteria=qualified_quizzes_simple,
+        algorithm_name="algorithm_one",
+        tab_amount=tab_amount
+    )
+
     return qualified_quizzes_verbose, qualified_quizzes_simple
-    
 
 if __name__ == "__main__":
     num_of_students_who_got_specific_max_score_AKA_P = 3
