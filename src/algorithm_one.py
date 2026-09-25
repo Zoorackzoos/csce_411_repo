@@ -104,7 +104,7 @@ def algorithm_one(
             print(tab_amount+"\t",quiz_name)
 
     craft_file_containing_all_possible_combinations(
-        list_of_quizes_that_satify_criteria=qualified_quizzes_simple,
+        list_of_quizzes_that_satisfy_criteria=qualified_quizzes_simple,
         algorithm_name="algorithm_one",
         tab_amount=tab_amount
     )
