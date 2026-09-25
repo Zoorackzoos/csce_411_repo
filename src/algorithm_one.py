@@ -37,12 +37,15 @@ import numpy
 from src.craft_file_containing_all_possible_combinations import craft_file_containing_all_possible_combinations
 
 path_to_yao_csv_file = "../exported_csv_files/raw_score_dataframe.csv"
+yao_csv_file_name_string = "yao_file"
 path_to_manual_testing_csv_file = "../exported_csv_files/manual_testing_file.csv"
+manual_testing_csv_file_name_string = "manual_testing_file"
 
 def algorithm_one(
         num_of_students_who_got_specific_max_score_AKA_P,
         specific_max_score_AKA_R,
         path_to_csv_file = path_to_yao_csv_file,
+        csv_file_name = yao_csv_file_name_string,
         tab_amount = ""
 ):
     """
@@ -96,9 +99,9 @@ def algorithm_one(
     ].index.tolist() # make it a list becuase i had pandas arrays.
 
     if len(qualified_quizzes_simple) <= 0:
-        print(tab_amount,"no quiz instances of",num_of_students_who_got_specific_max_score_AKA_P,"getting a score of",specific_max_score_AKA_R,"exsist.")
+        print(tab_amount,"no quiz instances of",num_of_students_who_got_specific_max_score_AKA_P,"getting a score of",specific_max_score_AKA_R,"exist.")
     else:
-        print(tab_amount,"there were" , len(qualified_quizzes_simple) ,"quiz instsinces of",num_of_students_who_got_specific_max_score_AKA_P,"who got",specific_max_score_AKA_R,"on the quiz or more.")
+        print(tab_amount,"there were" , len(qualified_quizzes_simple) ,"quiz instincts of",num_of_students_who_got_specific_max_score_AKA_P,"students who got",specific_max_score_AKA_R,"on the quiz or more.")
         print(tab_amount,"they are the following:")
         for quiz_name in qualified_quizzes_simple:
             print(tab_amount+"\t",quiz_name)
@@ -106,6 +109,7 @@ def algorithm_one(
     craft_file_containing_all_possible_combinations(
         list_of_quizzes_that_satisfy_criteria=qualified_quizzes_simple,
         algorithm_name="algorithm_one",
+        csv_file_name=yao_csv_file_name_string,
         tab_amount=tab_amount
     )
 
@@ -117,5 +121,6 @@ if __name__ == "__main__":
     algorithm_one(
         num_of_students_who_got_specific_max_score_AKA_P=num_of_students_who_got_specific_max_score_AKA_P,
         specific_max_score_AKA_R=specific_max_score_AKA_R,
-        path_to_csv_file=path_to_manual_testing_csv_file
+        csv_file_name=path_to_yao_csv_file,
+        path_to_csv_file=path_to_yao_csv_file
     )

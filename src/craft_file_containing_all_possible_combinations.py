@@ -4,6 +4,7 @@ import itertools
 
 def craft_file_containing_all_possible_combinations(
         algorithm_name,
+        csv_file_name,
         list_of_quizzes_that_satisfy_criteria,
         tab_amount=""
 ):
@@ -23,7 +24,7 @@ def craft_file_containing_all_possible_combinations(
 
     export_directory_path = "../exported_combonation_of_quiz_files"
     current_time_var = str(datetime.datetime.now())[0:10] + "_"
-    file_name_var = str(algorithm_name) + "_output"
+    file_name_var = str(algorithm_name) +"_on_" + csv_file_name + "_output"
     full_directory_path = export_directory_path + "/" + current_time_var + file_name_var + ".log"
 
     master_printing_string = ""
@@ -43,7 +44,7 @@ def craft_file_containing_all_possible_combinations(
 
         combinations_list = itertools.combinations(
             list_of_quizzes_that_satisfy_criteria,
-            len(list_of_quizzes_that_satisfy_criteria)
+            4
         )
 
         for combination in combinations_list:
