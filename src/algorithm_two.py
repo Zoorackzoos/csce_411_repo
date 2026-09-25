@@ -82,160 +82,30 @@ def algorithm_two(
     passing = quiz_data >= specific_max_score_AKA_R
     #print(passing)
 
-    # "For example, you can create a temporary counting table (Qi, count)..."
-    #       this is that
-    passing_students = {}
-
-    for quiz in quiz_data.columns:
-        students = set(
-            csv_file_variable.loc[
-                passing[quiz],
-                csv_file_variable.columns[0]
-            ]
-        )
-
-        if len(students) >= num_of_students_who_got_specific_max_score_AKA_P:
-            passing_students[quiz] = students
+    """
+    q1    False
+    q2    False
+    q3     True
+    q4    False
+    q5     True
+    q6     True
+    q7     True
+    """
+    passing = passing.sum() >= num_of_students_who_got_specific_max_score_AKA_P
 
     """
-    {
-        'q3': 
-        {'bloopert', 'Shmingus', 'martin'}, 
-        'q5': 
-        {'bloopert', 'Shmingus', 'martin'},
-        'q6': 
-        {'bloopert', 'Shmingus', 'martin'},
-        'q7':
-        {'bloopert', 'Shmingus', 'martin'}
-    }
+    q3    True
+    q5    True
+    q6    True
+    q7    True
     """
-    #print(passing_students)
+    # fuck pandas man. wtf is this shit.
+    # "nonono you misunderstand it's just a macro because we do it all the time"
+    #       if i make you eat your own shit. like what's happening here.
+    #       does that make you a better person? no dude. this is nonsense.
+    passing = passing[passing]
 
-    # "use it to create (Qi,Qj,count)"
-    #       this is that
-    pairs = {}
-
-    for quiz1, quiz2 in combinations(passing_students, 2):
-
-        students = (
-            passing_students[quiz1]
-            & passing_students[quiz2]
-        )
-
-        if len(students) >= num_of_students_who_got_specific_max_score_AKA_P:
-            pairs[(quiz1, quiz2)] = students
-
-    """
-    {
-        ('q3', 'q5'):
-        {'Shmingus', 'bloopert', 'martin'},
-        ('q3', 'q6'):
-        {'Shmingus', 'bloopert', 'martin'},
-        ('q3', 'q7'):
-        {'Shmingus', 'bloopert', 'martin'},
-        ('q5', 'q6'):
-        {'Shmingus', 'bloopert', 'martin'},
-        ('q5', 'q7'):
-        {'Shmingus', 'bloopert', 'martin'},
-        ('q6', 'q7'):
-        {'Shmingus', 'bloopert', 'martin'}
-    }
-    """
-    #print(pairs)
-
-    # "use it to create (Qi,Qj,count),..."
-    #       that is this
-    triples = {}
-
-    for quizzes, students in pairs.items():
-
-        for quiz in passing_students:
-
-            if quiz in quizzes:
-                continue
-
-            new_quizzes = quizzes + (quiz,)
-
-            new_students = (
-                students
-                & passing_students[quiz]
-            )
-
-            if len(new_students) >= num_of_students_who_got_specific_max_score_AKA_P:
-                triples[new_quizzes] = new_students
-
-    """
-    {
-        ('q3', 'q5', 'q6'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q3', 'q5', 'q7'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q3', 'q6', 'q5'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q3', 'q6', 'q7'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q3', 'q7', 'q5'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q3', 'q7', 'q6'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q5', 'q6', 'q3'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q5', 'q6', 'q7'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q5', 'q7', 'q3'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q5', 'q7', 'q6'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q6', 'q7', 'q3'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q6', 'q7', 'q5'):
-        {'martin', 'bloopert', 'Shmingus'}
-    }
-    """
-    #print(triples)
-
-    # and finally create (Qi, Qj, Qk, Ql,  count).
-    #       that is this
-    quadruples = []
-
-    for quizzes, students in triples.items():
-
-        for quiz in passing_students:
-
-            if quiz in quizzes:
-                continue
-
-            new_quizzes = quizzes + (quiz,)
-
-            new_students = (
-                students
-                & passing_students[quiz]
-            )
-
-            if len(new_students) >= num_of_students_who_got_specific_max_score_AKA_P:
-                quadruples.append(
-                    (*new_quizzes, len(new_students))
-                )
-
-    """
-    [
-    ('q3', 'q5', 'q6', 'q7', 3),
-    ('q3', 'q5', 'q7', 'q6', 3),
-    ('q3', 'q6', 'q5', 'q7', 3),
-    ('q3', 'q6', 'q7', 'q5', 3),
-    ('q3', 'q7', 'q5', 'q6', 3),
-    ('q3', 'q7', 'q6', 'q5', 3),
-    ('q5', 'q6', 'q3', 'q7', 3),
-    ('q5', 'q6', 'q7', 'q3', 3),
-    ('q5', 'q7', 'q3', 'q6', 3),
-    ('q5', 'q7', 'q6', 'q3', 3),
-    ('q6', 'q7', 'q3', 'q5', 3),
-    ('q6', 'q7', 'q5', 'q3', 3)
-    ]
-    """
-    #print(quadruples)
-
-    return quadruples
+    print(passing)
 
 if __name__ == "__main__":
     num_of_students_who_got_specific_max_score_AKA_P = 3
