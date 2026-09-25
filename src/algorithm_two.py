@@ -46,8 +46,16 @@ def algorithm_two(
         num_of_students_who_got_specific_max_score_AKA_P,
         specific_max_score_AKA_R
 ):
-
     """
+    Pandas is a terrible library and i do not want to hear otherwise.
+    did you know that if you have a mixed series with booleans you can get all of the
+    true ones by just doing array[array]
+    and if you want all the false ones you can do
+    array[-array]
+        does that make any sense to you?
+        calling all of the instinces in which somethign is true on itself to only ge thtose instinces
+        that shi doesn't ocme across at all. it looks like you're just feeding a variable itself which is dumb as hell.
+            readability who?
 
     :param path_to_csv_file:
     :param num_of_students_who_got_specific_max_score_AKA_P:
@@ -233,7 +241,7 @@ def algorithm_two(
     ('q6', 'q7', 'q5', 'q3', 3)
     ]
     """
-    #print(quadruples)
+    print(quadruples)
 
     return quadruples
 
@@ -243,5 +251,5 @@ if __name__ == "__main__":
     algorithm_two(
         num_of_students_who_got_specific_max_score_AKA_P=num_of_students_who_got_specific_max_score_AKA_P,
         specific_max_score_AKA_R=specific_max_score_AKA_R,
-        path_to_csv_file=path_to_manual_testing_csv_file
+        path_to_csv_file=manual_testing_csv_file_name_string
     )
