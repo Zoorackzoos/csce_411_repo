@@ -31,4 +31,27 @@ Q1,Q2,Q3,Q4,5
 Q2,Q4,Q5,Q7,18
 
 """
+from asyncio.windows_events import NULL
 
+path_to_yao_csv_file = "../exported_csv_files/raw_score_dataframe.csv"
+path_to_manual_testing_csv_file = "../exported_csv_files/manual_testing_file.csv"
+
+def algorithm_two(
+        num_of_students_who_got_specific_max_score_AKA_P,
+        specific_max_score_AKA_R,
+        path_to_csv_file = path_to_yao_csv_file,
+        tab_amount = ""
+):
+    print(tab_amount,"algorithm_two")
+    tab_amount += "\t"
+
+    return NULL
+
+if __name__ == "__main__":
+    num_of_students_who_got_specific_max_score_AKA_P = 3
+    specific_max_score_AKA_R = 10
+    algorithm_two(
+        num_of_students_who_got_specific_max_score_AKA_P=num_of_students_who_got_specific_max_score_AKA_P,
+        specific_max_score_AKA_R=specific_max_score_AKA_R,
+        path_to_csv_file=path_to_manual_testing_csv_file
+    )
