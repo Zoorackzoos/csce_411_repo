@@ -65,6 +65,8 @@ def algorithm_one(
     list but honestly.
         I don't care enough for that. you can just look.
 
+    :param tab_amount:
+    :param csv_file_name:
     :param num_of_students_who_got_specific_max_score_AKA_P:
     :param specific_max_score_AKA_R:
     :param path_to_csv_file:
@@ -74,6 +76,7 @@ def algorithm_one(
     tab_amount += "\t"
 
     csv_file_variable = pandas.read_csv(path_to_csv_file)
+
     """
     pandas arrays are different than regular arrays.
     you can issue more vague syntax to get faster results than using for loops
@@ -96,7 +99,7 @@ def algorithm_one(
     # no .iloc used here because this isn't a dataframe. so just do this:
     qualified_quizzes_simple = qualified_quizzes_verbose[
         qualified_quizzes_verbose == True
-    ].index.tolist() # make it a list becuase i had pandas arrays.
+    ].index.tolist() # make it a list because i had pandas arrays.
 
     if len(qualified_quizzes_simple) <= 0:
         print(tab_amount,"no quiz instances of",num_of_students_who_got_specific_max_score_AKA_P,"getting a score of",specific_max_score_AKA_R,"exist.")
@@ -109,7 +112,7 @@ def algorithm_one(
     craft_file_containing_all_possible_combinations(
         list_of_quizzes_that_satisfy_criteria=qualified_quizzes_simple,
         algorithm_name="algorithm_one",
-        csv_file_name=yao_csv_file_name_string,
+        csv_file_name=csv_file_name,
         tab_amount=tab_amount
     )
 
@@ -121,6 +124,6 @@ if __name__ == "__main__":
     algorithm_one(
         num_of_students_who_got_specific_max_score_AKA_P=num_of_students_who_got_specific_max_score_AKA_P,
         specific_max_score_AKA_R=specific_max_score_AKA_R,
-        csv_file_name=path_to_yao_csv_file,
+        csv_file_name=yao_csv_file_name_string,
         path_to_csv_file=path_to_yao_csv_file
     )
