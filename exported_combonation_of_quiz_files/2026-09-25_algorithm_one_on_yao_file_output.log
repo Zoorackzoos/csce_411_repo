@@ -1,0 +1,17 @@
+algorithm_two
+  Unnamed: 0  q1  q2  q3  q4  q5   q6   q7
+0   bloopert   0   0  90   0  90  100  100
+1     martin  80  80  90  80  90  100  100
+2   Shmingus  30  30  80  30  80  100  100
+   q1  q2  q3  q4  q5   q6   q7
+0   0   0  90   0  90  100  100
+1  80  80  90  80  90  100  100
+2  30  30  80  30  80  100  100
+      q1     q2    q3     q4    q5    q6    q7
+0  False  False  True  False  True  True  True
+1   True   True  True   True  True  True  True
+2   True   True  True   True  True  True  True
+{'q3': {'martin', 'Shmingus', 'bloopert'}, 'q5': {'martin', 'Shmingus', 'bloopert'}, 'q6': {'martin', 'Shmingus', 'bloopert'}, 'q7': {'martin', 'Shmingus', 'bloopert'}}
+{('q3', 'q5'): {'martin', 'bloopert', 'Shmingus'}, ('q3', 'q6'): {'martin', 'bloopert', 'Shmingus'}, ('q3', 'q7'): {'martin', 'bloopert', 'Shmingus'}, ('q5', 'q6'): {'martin', 'bloopert', 'Shmingus'}, ('q5', 'q7'): {'martin', 'bloopert', 'Shmingus'}, ('q6', 'q7'): {'martin', 'bloopert', 'Shmingus'}}
+{('q3', 'q5', 'q6'): {'martin', 'bloopert', 'Shmingus'}, ('q3', 'q5', 'q7'): {'martin', 'bloopert', 'Shmingus'}, ('q3', 'q6', 'q5'): {'martin', 'bloopert', 'Shmingus'}, ('q3', 'q6', 'q7'): {'martin', 'bloopert', 'Shmingus'}, ('q3', 'q7', 'q5'): {'martin', 'bloopert', 'Shmingus'}, ('q3', 'q7', 'q6'): {'martin', 'bloopert', 'Shmingus'}, ('q5', 'q6', 'q3'): {'martin', 'bloopert', 'Shmingus'}, ('q5', 'q6', 'q7'): {'martin', 'bloopert', 'Shmingus'}, ('q5', 'q7', 'q3'): {'martin', 'bloopert', 'Shmingus'}, ('q5', 'q7', 'q6'): {'martin', 'bloopert', 'Shmingus'}, ('q6', 'q7', 'q3'): {'martin', 'bloopert', 'Shmingus'}, ('q6', 'q7', 'q5'): {'martin', 'bloopert', 'Shmingus'}}
+[('q3', 'q5', 'q6', 'q7', 3), ('q3', 'q5', 'q7', 'q6', 3), ('q3', 'q6', 'q5', 'q7', 3), ('q3', 'q6', 'q7', 'q5', 3), ('q3', 'q7', 'q5', 'q6', 3), ('q3', 'q7', 'q6', 'q5', 3), ('q5', 'q6', 'q3', 'q7', 3), ('q5', 'q6', 'q7', 'q3', 3), ('q5', 'q7', 'q3', 'q6', 3), ('q5', 'q7', 'q6', 'q3', 3), ('q6', 'q7', 'q3', 'q5', 3), ('q6', 'q7', 'q5', 'q3', 3)]

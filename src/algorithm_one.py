@@ -31,6 +31,8 @@ N = columns as quizzes
 P = number of students getting the specific maximum score
 R = the specific maximum score
 """
+import datetime
+
 import pandas
 
 path_to_yao_csv_file = "../exported_csv_files/raw_score_dataframe.csv"
@@ -43,8 +45,8 @@ from itertools import combinations
 def algorithm_one(
         num_of_students_who_got_specific_max_score_AKA_P,
         specific_max_score_AKA_R,
-        path_to_csv_file,
-        csv_file_name,
+        path_to_csv_file=path_to_yao_csv_file,
+        csv_file_name=yao_csv_file_name_string,
         tab_amount=""
 ):
     master_string = ""
@@ -76,6 +78,15 @@ def algorithm_one(
             results.append((*combo, int(passing_count)))
 
     print(master_string)
+
+    export_directory_path = "../exported_combonation_of_quiz_files"
+    current_time_var = str(datetime.datetime.now())[0:10] + "_"
+    file_name_var = "algorithm_one" + "_on_" + csv_file_name + "_output"
+    full_directory_path = export_directory_path + "/" + current_time_var + file_name_var + ".log"
+
+    with open(full_directory_path, "w") as file:
+        file.write(master_string)
+
     return results
 
 if __name__ == "__main__":

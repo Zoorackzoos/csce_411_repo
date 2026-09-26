@@ -32,6 +32,8 @@ Q1,Q2,Q3,Q4,5
 Q2,Q4,Q5,Q7,18
 
 """
+import datetime
+
 import pandas as pd
 
 path_to_yao_csv_file = "../exported_csv_files/raw_score_dataframe.csv"
@@ -42,9 +44,10 @@ manual_testing_csv_file_name_string = "manual_testing_file"
 from itertools import combinations
 
 def algorithm_two(
-        path_to_csv_file,
         num_of_students_who_got_specific_max_score_AKA_P,
-        specific_max_score_AKA_R
+        specific_max_score_AKA_R,
+        path_to_csv_file=path_to_yao_csv_file,
+        csv_file_name=yao_csv_file_name_string,
 ):
     """
     Pandas is a terrible library and i do not want to hear otherwise.
@@ -62,6 +65,8 @@ def algorithm_two(
     :param specific_max_score_AKA_R:
     :return:
     """
+    master_string = ""
+    master_string += f"algorithm_two\n"
 
     """
       Unnamed: 0  q1  q2  q3  q4  q5   q6   q7
@@ -70,7 +75,7 @@ def algorithm_two(
     2   Shmingus  30  30  80  30  80  100  100
     """
     csv_file_variable = pd.read_csv(path_to_csv_file)
-    #print(csv_file_variable)
+    master_string += str(csv_file_variable) + "\n"
 
     """
        q1  q2  q3  q4  q5   q6   q7
@@ -79,7 +84,7 @@ def algorithm_two(
     2  30  30  80  30  80  100  100
     """
     quiz_data = csv_file_variable.iloc[:, 1:]
-    #print(quiz_data)
+    master_string += str(quiz_data) + "\n"
 
     """
           q1     q2    q3     q4    q5    q6    q7
@@ -88,7 +93,7 @@ def algorithm_two(
     2   True   True  True   True  True  True  True
     """
     passing = quiz_data >= specific_max_score_AKA_R
-    #print(passing)
+    master_string += str(passing) + "\n"
 
     # "For example, you can create a temporary counting table (Qi, count)..."
     #       this is that
@@ -117,7 +122,7 @@ def algorithm_two(
         {'bloopert', 'Shmingus', 'martin'}
     }
     """
-    #print(passing_students)
+    master_string += str(passing_students) + "\n"
 
     # "use it to create (Qi,Qj,count)"
     #       this is that
@@ -149,7 +154,7 @@ def algorithm_two(
         {'Shmingus', 'bloopert', 'martin'}
     }
     """
-    #print(pairs)
+    master_string += str(pairs) + "\n"
 
     # "use it to create (Qi,Qj,count),..."
     #       that is this
@@ -200,7 +205,7 @@ def algorithm_two(
         {'martin', 'bloopert', 'Shmingus'}
     }
     """
-    #print(triples)
+    master_string += str(triples) + "\n"
 
     # and finally create (Qi, Qj, Qk, Ql,  count).
     #       that is this
@@ -241,7 +246,17 @@ def algorithm_two(
     ('q6', 'q7', 'q5', 'q3', 3)
     ]
     """
-    print(quadruples)
+    master_string += str(quadruples) + "\n"
+
+    print(master_string)
+
+    export_directory_path = "../exported_combonation_of_quiz_files"
+    current_time_var = str(datetime.datetime.now())[0:10] + "_"
+    file_name_var = "algorithm_one" + "_on_" + csv_file_name + "_output"
+    full_directory_path = export_directory_path + "/" + current_time_var + file_name_var + ".log"
+
+    with open(full_directory_path, "w") as file:
+        file.write(master_string)
 
     return quadruples
 
