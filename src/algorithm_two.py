@@ -251,5 +251,5 @@ if __name__ == "__main__":
     algorithm_two(
         num_of_students_who_got_specific_max_score_AKA_P=num_of_students_who_got_specific_max_score_AKA_P,
         specific_max_score_AKA_R=specific_max_score_AKA_R,
-        path_to_csv_file=manual_testing_csv_file_name_string
+        path_to_csv_file=path_to_manual_testing_csv_file
     )

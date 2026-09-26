@@ -33,8 +33,6 @@ R = the specific maximum score
 """
 import pandas
 
-from src.craft_file_containing_all_possible_combinations import craft_file_containing_all_possible_combinations
-
 path_to_yao_csv_file = "../exported_csv_files/raw_score_dataframe.csv"
 yao_csv_file_name_string = "yao_file"
 path_to_manual_testing_csv_file = "../exported_csv_files/manual_testing_file.csv"
@@ -49,17 +47,35 @@ def algorithm_one(
         csv_file_name,
         tab_amount=""
 ):
-    df = pandas.read_csv(path_to_csv_file)
-    quiz_columns = df.columns[1:]  # skip student-name column
-    scores = df[quiz_columns] >= R  # boolean matrix, same shape as scores
+    master_string = ""
+    master_string += f"{tab_amount}algorithm_one\n"
+    tab_amount += "\t"
 
+    # getting the pandas array of the CSV file.
+    #       df = data frame
+    df = pandas.read_csv(path_to_csv_file)
+
+    # skip student-name column
+    quiz_columns = df.columns[1:]
+
+    # boolean matrix, same shape as scores
+    scores = df[quiz_columns] >= R
+
+    # this is what is present in the sample output.
+    # list of quizzes, and at the end is the amount of students that got value P or above.
     results = []
+
     for combo in combinations(quiz_columns, 4):
         # a student "passes" this combo if they cleared R on ALL 4 quizzes in it
+        # bool matrix --> bool matrix with one column --> sum of them, integer
         passing_count = scores[list(combo)].all(axis=1).sum()
-        if passing_count >= P:
-            results.append((*combo, passing_count))
 
+        # if that was greater than the max students needing to "pass"
+        # then add it and teh student count which is len(passing_count)
+        if passing_count >= P:
+            results.append((*combo, int(passing_count)))
+
+    print(master_string)
     return results
 
 if __name__ == "__main__":
