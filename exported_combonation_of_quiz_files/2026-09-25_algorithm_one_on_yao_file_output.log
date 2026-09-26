@@ -69,7 +69,6 @@ Index(['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11',
 29  False  False  False  False   True  ...  False  False  False  False  False
 
 [30 rows x 30 columns]
-time taken for algorithm_one = 22.947162099997513
 [
 	('Q1', 'Q4', 'Q6', 'Q28', 3)
 	('Q1', 'Q4', 'Q11', 'Q12', 3)
@@ -463,3 +462,4 @@ time taken for algorithm_one = 22.947162099997513
 	('Q21', 'Q22', 'Q25', 'Q30', 3)
 	('Q21', 'Q22', 'Q29', 'Q30', 3)
 ]
+time taken for algorithm_one = 20.05967529991176

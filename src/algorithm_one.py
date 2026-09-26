@@ -85,11 +85,11 @@ def algorithm_one(
             results.append((*combo, int(passing_count)))
 
     end_time = time.perf_counter()
-    master_string += f"time taken for algorithm_one = {end_time - start_time}\n"
     master_string += f"[\n"
     for result in results:
         master_string += f"\t{result}\n"
     master_string += f"]\n"
+    master_string += f"time taken for algorithm_one = {end_time - start_time}\n"
 
     print(master_string)
 

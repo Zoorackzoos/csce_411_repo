@@ -23,10 +23,10 @@ algorithm_two
 4   True   True   True   True  False  False  False
 5  False  False  False  False  False  False  False
 6   True  False  False  False  False   True   True
-{'q1': {'dr blood', 'martin', 'Hubert', 'Zzbazbiz'}, 'q2': {'martin', 'Hubert', 'Zzbazbiz'}, 'q3': {'bloopert', 'martin', 'Hubert', 'Shmingus', 'Zzbazbiz'}, 'q4': {'martin', 'Hubert', 'Zzbazbiz'}, 'q5': {'bloopert', 'Hubert', 'martin', 'Shmingus'}, 'q6': {'dr blood', 'bloopert', 'martin', 'Hubert', 'Shmingus'}, 'q7': {'dr blood', 'bloopert', 'martin', 'Hubert', 'Shmingus'}}
-{('q1', 'q2'): {'martin', 'Hubert', 'Zzbazbiz'}, ('q1', 'q3'): {'martin', 'Hubert', 'Zzbazbiz'}, ('q1', 'q4'): {'martin', 'Hubert', 'Zzbazbiz'}, ('q1', 'q6'): {'martin', 'Hubert', 'dr blood'}, ('q1', 'q7'): {'martin', 'Hubert', 'dr blood'}, ('q2', 'q3'): {'martin', 'Hubert', 'Zzbazbiz'}, ('q2', 'q4'): {'martin', 'Hubert', 'Zzbazbiz'}, ('q3', 'q4'): {'martin', 'Hubert', 'Zzbazbiz'}, ('q3', 'q5'): {'bloopert', 'martin', 'Hubert', 'Shmingus'}, ('q3', 'q6'): {'bloopert', 'martin', 'Hubert', 'Shmingus'}, ('q3', 'q7'): {'bloopert', 'martin', 'Hubert', 'Shmingus'}, ('q5', 'q6'): {'bloopert', 'martin', 'Hubert', 'Shmingus'}, ('q5', 'q7'): {'bloopert', 'martin', 'Hubert', 'Shmingus'}, ('q6', 'q7'): {'dr blood', 'bloopert', 'martin', 'Hubert', 'Shmingus'}}
+{'q1': {'martin', 'Hubert', 'dr blood', 'Zzbazbiz'}, 'q2': {'martin', 'Hubert', 'Zzbazbiz'}, 'q3': {'Shmingus', 'Zzbazbiz', 'martin', 'Hubert', 'bloopert'}, 'q4': {'martin', 'Hubert', 'Zzbazbiz'}, 'q5': {'martin', 'bloopert', 'Hubert', 'Shmingus'}, 'q6': {'Shmingus', 'martin', 'Hubert', 'dr blood', 'bloopert'}, 'q7': {'Shmingus', 'martin', 'Hubert', 'dr blood', 'bloopert'}}
+{('q1', 'q2'): {'martin', 'Hubert', 'Zzbazbiz'}, ('q1', 'q3'): {'martin', 'Hubert', 'Zzbazbiz'}, ('q1', 'q4'): {'martin', 'Hubert', 'Zzbazbiz'}, ('q1', 'q6'): {'martin', 'Hubert', 'dr blood'}, ('q1', 'q7'): {'martin', 'Hubert', 'dr blood'}, ('q2', 'q3'): {'martin', 'Hubert', 'Zzbazbiz'}, ('q2', 'q4'): {'martin', 'Hubert', 'Zzbazbiz'}, ('q3', 'q4'): {'martin', 'Hubert', 'Zzbazbiz'}, ('q3', 'q5'): {'martin', 'bloopert', 'Hubert', 'Shmingus'}, ('q3', 'q6'): {'martin', 'bloopert', 'Hubert', 'Shmingus'}, ('q3', 'q7'): {'martin', 'bloopert', 'Hubert', 'Shmingus'}, ('q5', 'q6'): {'martin', 'bloopert', 'Hubert', 'Shmingus'}, ('q5', 'q7'): {'martin', 'bloopert', 'Hubert', 'Shmingus'}, ('q6', 'q7'): {'Shmingus', 'martin', 'Hubert', 'dr blood', 'bloopert'}}
 [
 	('q1', 'q2', 'q3', 'q4', 3)
 	('q3', 'q5', 'q6', 'q7', 4)
 ]
-time taken for algorithm_one = 0.021470699924975634
+time taken for algorithm_one = 0.019889699993655086
