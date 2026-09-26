@@ -33,6 +33,7 @@ Q2,Q4,Q5,Q7,18
 
 """
 import datetime
+import time
 
 import pandas as pd
 
@@ -49,22 +50,7 @@ def algorithm_two(
         path_to_csv_file=path_to_yao_csv_file,
         csv_file_name=yao_csv_file_name_string,
 ):
-    """
-    Pandas is a terrible library and i do not want to hear otherwise.
-    did you know that if you have a mixed series with booleans you can get all of the
-    true ones by just doing array[array]
-    and if you want all the false ones you can do
-    array[-array]
-        does that make any sense to you?
-        calling all of the instinces in which somethign is true on itself to only ge thtose instinces
-        that shi doesn't ocme across at all. it looks like you're just feeding a variable itself which is dumb as hell.
-            readability who?
-
-    :param path_to_csv_file:
-    :param num_of_students_who_got_specific_max_score_AKA_P:
-    :param specific_max_score_AKA_R:
-    :return:
-    """
+    start_time = time.perf_counter()
     master_string = ""
     master_string += f"algorithm_two\n"
 
@@ -92,7 +78,11 @@ def algorithm_two(
     1   True   True  True   True  True  True  True
     2   True   True  True   True  True  True  True
     """
-    passing = quiz_data >= specific_max_score_AKA_R
+    try:
+        passing = quiz_data >= specific_max_score_AKA_R
+    except:
+        print(specific_max_score_AKA_R)
+
     master_string += str(passing) + "\n"
 
     # "For example, you can create a temporary counting table (Qi, count)..."
@@ -156,103 +146,34 @@ def algorithm_two(
     """
     master_string += str(pairs) + "\n"
 
-    # "use it to create (Qi,Qj,count),..."
-    #       that is this
+    quiz_order = list(passing_students.keys())
+
     triples = {}
-
-    for quizzes, students in pairs.items():
-
-        for quiz in passing_students:
-
-            if quiz in quizzes:
-                continue
-
-            new_quizzes = quizzes + (quiz,)
-
-            new_students = (
-                students
-                & passing_students[quiz]
-            )
-
+    for (q1, q2), students in pairs.items():
+        start = quiz_order.index(q2) + 1
+        for quiz in quiz_order[start:]:
+            new_students = students & passing_students[quiz]
             if len(new_students) >= num_of_students_who_got_specific_max_score_AKA_P:
-                triples[new_quizzes] = new_students
+                triples[(q1, q2, quiz)] = new_students
 
-    """
-    {
-        ('q3', 'q5', 'q6'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q3', 'q5', 'q7'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q3', 'q6', 'q5'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q3', 'q6', 'q7'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q3', 'q7', 'q5'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q3', 'q7', 'q6'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q5', 'q6', 'q3'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q5', 'q6', 'q7'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q5', 'q7', 'q3'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q5', 'q7', 'q6'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q6', 'q7', 'q3'):
-        {'martin', 'bloopert', 'Shmingus'},
-        ('q6', 'q7', 'q5'):
-        {'martin', 'bloopert', 'Shmingus'}
-    }
-    """
-    master_string += str(triples) + "\n"
-
-    # and finally create (Qi, Qj, Qk, Ql,  count).
-    #       that is this
     quadruples = []
-
     for quizzes, students in triples.items():
-
-        for quiz in passing_students:
-
-            if quiz in quizzes:
-                continue
-
-            new_quizzes = quizzes + (quiz,)
-
-            new_students = (
-                students
-                & passing_students[quiz]
-            )
-
+        start = quiz_order.index(quizzes[-1]) + 1
+        for quiz in quiz_order[start:]:
+            new_students = students & passing_students[quiz]
             if len(new_students) >= num_of_students_who_got_specific_max_score_AKA_P:
-                quadruples.append(
-                    (*new_quizzes, len(new_students))
-                )
+                quadruples.append((*quizzes, quiz, len(new_students)))
 
-    """
-    [
-    ('q3', 'q5', 'q6', 'q7', 3),
-    ('q3', 'q5', 'q7', 'q6', 3),
-    ('q3', 'q6', 'q5', 'q7', 3),
-    ('q3', 'q6', 'q7', 'q5', 3),
-    ('q3', 'q7', 'q5', 'q6', 3),
-    ('q3', 'q7', 'q6', 'q5', 3),
-    ('q5', 'q6', 'q3', 'q7', 3),
-    ('q5', 'q6', 'q7', 'q3', 3),
-    ('q5', 'q7', 'q3', 'q6', 3),
-    ('q5', 'q7', 'q6', 'q3', 3),
-    ('q6', 'q7', 'q3', 'q5', 3),
-    ('q6', 'q7', 'q5', 'q3', 3)
-    ]
-    """
     master_string += str(quadruples) + "\n"
+
+    end_time = time.perf_counter()
+    master_string += f"time taken for algorithm_one = {end_time - start_time}\n"
 
     print(master_string)
 
     export_directory_path = "../exported_combonation_of_quiz_files"
     current_time_var = str(datetime.datetime.now())[0:10] + "_"
-    file_name_var = "algorithm_one" + "_on_" + csv_file_name + "_output"
+    file_name_var = "algorithm_two" + "_on_" + csv_file_name + "_output"
     full_directory_path = export_directory_path + "/" + current_time_var + file_name_var + ".log"
 
     with open(full_directory_path, "w") as file:
@@ -262,9 +183,10 @@ def algorithm_two(
 
 if __name__ == "__main__":
     num_of_students_who_got_specific_max_score_AKA_P = 3
-    specific_max_score_AKA_R = 10
+    specific_max_score_AKA_R = 7
     algorithm_two(
         num_of_students_who_got_specific_max_score_AKA_P=num_of_students_who_got_specific_max_score_AKA_P,
         specific_max_score_AKA_R=specific_max_score_AKA_R,
-        path_to_csv_file=path_to_manual_testing_csv_file
+        csv_file_name=yao_csv_file_name_string,
+        path_to_csv_file=path_to_yao_csv_file
     )

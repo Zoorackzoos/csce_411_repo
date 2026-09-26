@@ -32,6 +32,7 @@ P = number of students getting the specific maximum score
 R = the specific maximum score
 """
 import datetime
+import time
 
 import pandas
 
@@ -49,6 +50,9 @@ def algorithm_one(
         csv_file_name=yao_csv_file_name_string,
         tab_amount=""
 ):
+    #when started
+    start_time = time.perf_counter()
+
     master_string = ""
     master_string += f"{tab_amount}algorithm_one\n"
     tab_amount += "\t"
@@ -77,6 +81,10 @@ def algorithm_one(
         if passing_count >= num_of_students_who_got_specific_max_score_AKA_P:
             results.append((*combo, int(passing_count)))
 
+    end_time = time.perf_counter()
+    master_string += f"time taken for algorithm_one = {end_time - start_time}\n"
+    master_string += f"{results}\n"
+
     print(master_string)
 
     export_directory_path = "../exported_combonation_of_quiz_files"
@@ -91,11 +99,11 @@ def algorithm_one(
 
 if __name__ == "__main__":
     num_of_students_who_got_specific_max_score_AKA_P = 3
-    specific_max_score_AKA_R = 10
+    specific_max_score_AKA_R = 7
     results = algorithm_one(
         num_of_students_who_got_specific_max_score_AKA_P=num_of_students_who_got_specific_max_score_AKA_P,
         specific_max_score_AKA_R=specific_max_score_AKA_R,
-        csv_file_name=manual_testing_csv_file_name_string,
-        path_to_csv_file=path_to_manual_testing_csv_file
+        csv_file_name=yao_csv_file_name_string,
+        path_to_csv_file=path_to_yao_csv_file
     )
     print(results)
