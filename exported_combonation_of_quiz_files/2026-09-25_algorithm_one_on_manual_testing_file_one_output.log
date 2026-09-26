@@ -16,7 +16,7 @@ Index(['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7'], dtype='object')
 4   True   True   True   True  False  False  False
 5  False  False  False  False  False  False  False
 6   True  False  False  False  False   True   True
-time taken for algorithm_one = 0.06231129996012896
+time taken for algorithm_one = 0.0448780000442639
 [
 	('q1', 'q2', 'q3', 'q4', 3)
 	('q3', 'q5', 'q6', 'q7', 4)

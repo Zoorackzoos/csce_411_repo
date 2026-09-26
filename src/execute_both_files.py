@@ -6,7 +6,7 @@ if __name__ == "__main__":
     list_of_path_and_string_of_files_to_parse = \
     [
         [
-            "../exported_csv_files/manual_testing_file_one.csv"
+            "../exported_csv_files/manual_testing_file_one.csv",
             "manual_testing_file_one"
         ],
         [

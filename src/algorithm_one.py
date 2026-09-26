@@ -52,7 +52,7 @@ def algorithm_one(
 ):
     #when started
     start_time = time.perf_counter()
-
+    print("algorithm_one")
     master_string = ""
     master_string += f"{tab_amount}algorithm_one\n"
     tab_amount += "\t"

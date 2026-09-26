@@ -51,6 +51,7 @@ def algorithm_two(
         csv_file_name=yao_csv_file_name_string,
 ):
     start_time = time.perf_counter()
+    print("algorithm_two")
     master_string = ""
     master_string += f"algorithm_two\n"
 
