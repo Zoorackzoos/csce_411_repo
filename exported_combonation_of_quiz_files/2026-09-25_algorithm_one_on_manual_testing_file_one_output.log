@@ -1,0 +1,23 @@
+algorithm_one
+  Unnamed: 0  q1  q2  q3  q4  q5  q6  q7
+0   bloopert   0   0  10   0  10  10  10
+1     martin   8   8   9   8   8  10  10
+2   Shmingus   3   3   8   3   8  10  10
+3     Hubert  10  10  10  10  10  10  10
+4   Zzbazbiz   9   9   9   9   0   0   3
+5       EVIL   6   6   6   6   6   6   6
+6   dr blood   8   3   5   6   2   7   7
+Index(['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7'], dtype='object')
+      q1     q2     q3     q4     q5     q6     q7
+0  False  False   True  False   True   True   True
+1   True   True   True   True   True   True   True
+2  False  False   True  False   True   True   True
+3   True   True   True   True   True   True   True
+4   True   True   True   True  False  False  False
+5  False  False  False  False  False  False  False
+6   True  False  False  False  False   True   True
+time taken for algorithm_one = 0.06231129996012896
+[
+	('q1', 'q2', 'q3', 'q4', 3)
+	('q3', 'q5', 'q6', 'q7', 4)
+]

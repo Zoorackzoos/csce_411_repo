@@ -38,7 +38,7 @@ import pandas
 
 path_to_yao_csv_file = "../exported_csv_files/raw_score_dataframe.csv"
 yao_csv_file_name_string = "yao_file"
-path_to_manual_testing_csv_file = "../exported_csv_files/manual_testing_file.csv"
+path_to_manual_testing_csv_file = "../exported_csv_files/manual_testing_file_one.csv"
 manual_testing_csv_file_name_string = "manual_testing_file"
 
 from itertools import combinations
@@ -60,12 +60,15 @@ def algorithm_one(
     # getting the pandas array of the CSV file.
     #       df = data frame
     df = pandas.read_csv(path_to_csv_file)
+    master_string += f"{df}\n"
 
     # skip student-name column
     quiz_columns = df.columns[1:]
+    master_string += f"{quiz_columns}\n"
 
     # boolean matrix, same shape as scores
     scores = df[quiz_columns] >= specific_max_score_AKA_R
+    master_string += f"{scores}\n"
 
     # this is what is present in the sample output.
     # list of quizzes, and at the end is the amount of students that got value P or above.
@@ -83,7 +86,10 @@ def algorithm_one(
 
     end_time = time.perf_counter()
     master_string += f"time taken for algorithm_one = {end_time - start_time}\n"
-    master_string += f"{results}\n"
+    master_string += f"[\n"
+    for result in results:
+        master_string += f"\t{result}\n"
+    master_string += f"]\n"
 
     print(master_string)
 

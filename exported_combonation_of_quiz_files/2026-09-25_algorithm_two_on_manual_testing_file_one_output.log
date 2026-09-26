@@ -1,0 +1,32 @@
+algorithm_two
+  Unnamed: 0  q1  q2  q3  q4  q5  q6  q7
+0   bloopert   0   0  10   0  10  10  10
+1     martin   8   8   9   8   8  10  10
+2   Shmingus   3   3   8   3   8  10  10
+3     Hubert  10  10  10  10  10  10  10
+4   Zzbazbiz   9   9   9   9   0   0   3
+5       EVIL   6   6   6   6   6   6   6
+6   dr blood   8   3   5   6   2   7   7
+   q1  q2  q3  q4  q5  q6  q7
+0   0   0  10   0  10  10  10
+1   8   8   9   8   8  10  10
+2   3   3   8   3   8  10  10
+3  10  10  10  10  10  10  10
+4   9   9   9   9   0   0   3
+5   6   6   6   6   6   6   6
+6   8   3   5   6   2   7   7
+      q1     q2     q3     q4     q5     q6     q7
+0  False  False   True  False   True   True   True
+1   True   True   True   True   True   True   True
+2  False  False   True  False   True   True   True
+3   True   True   True   True   True   True   True
+4   True   True   True   True  False  False  False
+5  False  False  False  False  False  False  False
+6   True  False  False  False  False   True   True
+{'q1': {'Zzbazbiz', 'Hubert', 'dr blood', 'martin'}, 'q2': {'Zzbazbiz', 'Hubert', 'martin'}, 'q3': {'Hubert', 'Shmingus', 'bloopert', 'martin', 'Zzbazbiz'}, 'q4': {'Zzbazbiz', 'Hubert', 'martin'}, 'q5': {'Shmingus', 'bloopert', 'Hubert', 'martin'}, 'q6': {'Hubert', 'Shmingus', 'dr blood', 'bloopert', 'martin'}, 'q7': {'Hubert', 'Shmingus', 'dr blood', 'bloopert', 'martin'}}
+{('q1', 'q2'): {'Hubert', 'Zzbazbiz', 'martin'}, ('q1', 'q3'): {'Hubert', 'Zzbazbiz', 'martin'}, ('q1', 'q4'): {'Hubert', 'Zzbazbiz', 'martin'}, ('q1', 'q6'): {'Hubert', 'dr blood', 'martin'}, ('q1', 'q7'): {'Hubert', 'dr blood', 'martin'}, ('q2', 'q3'): {'Hubert', 'Zzbazbiz', 'martin'}, ('q2', 'q4'): {'Hubert', 'Zzbazbiz', 'martin'}, ('q3', 'q4'): {'Hubert', 'Zzbazbiz', 'martin'}, ('q3', 'q5'): {'Shmingus', 'bloopert', 'Hubert', 'martin'}, ('q3', 'q6'): {'Hubert', 'bloopert', 'Shmingus', 'martin'}, ('q3', 'q7'): {'Hubert', 'bloopert', 'Shmingus', 'martin'}, ('q5', 'q6'): {'Shmingus', 'bloopert', 'Hubert', 'martin'}, ('q5', 'q7'): {'Shmingus', 'bloopert', 'Hubert', 'martin'}, ('q6', 'q7'): {'Hubert', 'Shmingus', 'bloopert', 'dr blood', 'martin'}}
+[
+	('q1', 'q2', 'q3', 'q4', 3)
+	('q3', 'q5', 'q6', 'q7', 4)
+]
+time taken for algorithm_one = 0.020341800060123205

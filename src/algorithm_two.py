@@ -39,7 +39,7 @@ import pandas as pd
 
 path_to_yao_csv_file = "../exported_csv_files/raw_score_dataframe.csv"
 yao_csv_file_name_string = "yao_file"
-path_to_manual_testing_csv_file = "../exported_csv_files/manual_testing_file.csv"
+path_to_manual_testing_csv_file = "../exported_csv_files/manual_testing_file_one.csv"
 manual_testing_csv_file_name_string = "manual_testing_file"
 
 from itertools import combinations
@@ -164,7 +164,10 @@ def algorithm_two(
             if len(new_students) >= num_of_students_who_got_specific_max_score_AKA_P:
                 quadruples.append((*quizzes, quiz, len(new_students)))
 
-    master_string += str(quadruples) + "\n"
+    master_string += f"[\n"
+    for result in quadruples:
+        master_string += f"\t{result}\n"
+    master_string += f"]\n"
 
     end_time = time.perf_counter()
     master_string += f"time taken for algorithm_one = {end_time - start_time}\n"
