@@ -175,7 +175,7 @@ def algorithm_two(
 
     print(master_string)
 
-    export_directory_path = "../exported_combonation_of_quiz_files"
+    export_directory_path = "../export_log_files"
     current_time_var = str(datetime.datetime.now())[0:10] + "_"
     file_name_var = "algorithm_two" + "_on_" + csv_file_name + "_output"
     full_directory_path = export_directory_path + "/" + current_time_var + file_name_var + ".log"
