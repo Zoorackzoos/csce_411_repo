@@ -41,8 +41,8 @@ manual_testing_csv_file_name_string = "manual_testing_file"
 from itertools import combinations
 
 def algorithm_one(
-        P,
-        R,
+        num_of_students_who_got_specific_max_score_AKA_P,
+        specific_max_score_AKA_R,
         path_to_csv_file,
         csv_file_name,
         tab_amount=""
@@ -59,7 +59,7 @@ def algorithm_one(
     quiz_columns = df.columns[1:]
 
     # boolean matrix, same shape as scores
-    scores = df[quiz_columns] >= R
+    scores = df[quiz_columns] >= specific_max_score_AKA_R
 
     # this is what is present in the sample output.
     # list of quizzes, and at the end is the amount of students that got value P or above.
@@ -72,7 +72,7 @@ def algorithm_one(
 
         # if that was greater than the max students needing to "pass"
         # then add it and teh student count which is len(passing_count)
-        if passing_count >= P:
+        if passing_count >= num_of_students_who_got_specific_max_score_AKA_P:
             results.append((*combo, int(passing_count)))
 
     print(master_string)
@@ -82,8 +82,8 @@ if __name__ == "__main__":
     num_of_students_who_got_specific_max_score_AKA_P = 3
     specific_max_score_AKA_R = 10
     results = algorithm_one(
-        P=num_of_students_who_got_specific_max_score_AKA_P,
-        R=specific_max_score_AKA_R,
+        num_of_students_who_got_specific_max_score_AKA_P=num_of_students_who_got_specific_max_score_AKA_P,
+        specific_max_score_AKA_R=specific_max_score_AKA_R,
         csv_file_name=manual_testing_csv_file_name_string,
         path_to_csv_file=path_to_manual_testing_csv_file
     )
