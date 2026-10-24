@@ -1,0 +1,57 @@
+@startchen
+
+' ==========================================
+' Entities and their attributes
+' ==========================================
+
+entity "College" as COLLEGE {
+  "College ID" as CollegeID <<key>>
+  "Name" as CollegeName
+  "Location" as Location
+  "Size" as Size
+}
+
+entity "Course" as COURSE <<weak>> {
+  "Course Number" as CourseNumber <<key>>
+  "Name" as CourseName <<key>>
+  "Credit Hours" as CreditHours
+}
+
+entity "Instructor" as INSTRUCTOR {
+  "Employee ID" as EmployeeID <<key>>
+  "Name" as InstructorName
+  "Qualifications" as Qualifications
+  "Experience" as Experience
+}
+
+' ==========================================
+' Relationships
+' ==========================================
+
+relationship "Offers" as OFFERS <<identifying>> {
+}
+
+relationship "Has" as HAS_INSTRUCTOR {
+}
+
+relationship "Teaches" as TEACHES {
+}
+
+' ==========================================
+' Cardinalities
+' ==========================================
+
+' A college offers many courses.
+OFFERS -1- COLLEGE
+OFFERS =N= COURSE
+
+' A college has many instructors.
+HAS_INSTRUCTOR -1- COLLEGE
+HAS_INSTRUCTOR -N- INSTRUCTOR
+
+' One instructor may teach many courses.
+' Each course has exactly one instructor.
+TEACHES -N- INSTRUCTOR
+TEACHES -1- COURSE
+
+@endchen

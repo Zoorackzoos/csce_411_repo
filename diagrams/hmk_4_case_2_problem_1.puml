@@ -1,0 +1,68 @@
+
+@startchen
+
+' ==========================================
+' ENTITIES AND ATTRIBUTES
+' ==========================================
+
+entity "Applicant" as APPLICANT {
+  "id" as ApplicantID <<key>>
+  "first_name" as FirstName
+  "last_name" as LastName
+  "email" as Email
+  "phone" as Phone
+  "summary" as Summary
+}
+
+entity "Application" as APPLICATION {
+  "id" as ApplicationID <<key>>
+  "date_of_application" as ApplicationDate
+  "education" as Education
+  "experience" as Experience
+  "other_info" as OtherInfo
+}
+
+entity "Application Document" as APPLICATION_DOCUMENT {
+  "id" as ApplicationDocumentID <<key>>
+}
+
+entity "Document" as DOCUMENT {
+  "id" as DocumentID <<key>>
+  "name" as DocumentName
+  "document" as DocumentData
+  "url" as DocumentURL
+  "last_update" as LastUpdate
+}
+
+' ==========================================
+' RELATIONSHIPS
+' ==========================================
+
+
+relationship "Submits" as SUBMITS {
+}
+
+relationship "Has" as HAS_APPLICATION_DOCUMENT {
+}
+
+relationship "References" as REFERENCES_DOCUMENT {
+}
+
+' ==========================================
+' CARDINALITIES
+' ==========================================
+
+' One applicant can submit many applications.
+SUBMITS -1- APPLICANT
+SUBMITS -N- APPLICATION
+
+' One application can have many application documents.
+HAS_APPLICATION_DOCUMENT -1- APPLICATION
+HAS_APPLICATION_DOCUMENT -N- APPLICATION_DOCUMENT
+
+' Each application document references a document.
+' A document may be referenced by multiple records.
+REFERENCES_DOCUMENT -1- APPLICATION_DOCUMENT
+REFERENCES_DOCUMENT -N- DOCUMENT
+
+@endchen
