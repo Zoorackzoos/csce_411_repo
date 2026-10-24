@@ -23,8 +23,27 @@ algorithm_two
 4   True   True   True   True  False  False  False
 5  False  False  False  False  False  False  False
 6   True  False  False  False  False   True   True
-{'q1': {'Hubert', 'dr blood', 'martin', 'Zzbazbiz'}, 'q2': {'Hubert', 'martin', 'Zzbazbiz'}, 'q3': {'Hubert', 'martin', 'Zzbazbiz', 'Shmingus', 'bloopert'}, 'q4': {'Hubert', 'martin', 'Zzbazbiz'}, 'q5': {'Shmingus', 'Hubert', 'martin', 'bloopert'}, 'q6': {'Hubert', 'dr blood', 'martin', 'Shmingus', 'bloopert'}, 'q7': {'Hubert', 'dr blood', 'martin', 'Shmingus', 'bloopert'}}
-{('q1', 'q2'): {'Hubert', 'martin', 'Zzbazbiz'}, ('q1', 'q3'): {'Hubert', 'martin', 'Zzbazbiz'}, ('q1', 'q4'): {'Hubert', 'martin', 'Zzbazbiz'}, ('q1', 'q6'): {'Hubert', 'martin', 'dr blood'}, ('q1', 'q7'): {'Hubert', 'martin', 'dr blood'}, ('q2', 'q3'): {'Hubert', 'martin', 'Zzbazbiz'}, ('q2', 'q4'): {'Hubert', 'martin', 'Zzbazbiz'}, ('q3', 'q4'): {'Hubert', 'martin', 'Zzbazbiz'}, ('q3', 'q5'): {'Hubert', 'Shmingus', 'martin', 'bloopert'}, ('q3', 'q6'): {'Hubert', 'martin', 'bloopert', 'Shmingus'}, ('q3', 'q7'): {'Hubert', 'martin', 'bloopert', 'Shmingus'}, ('q5', 'q6'): {'Hubert', 'Shmingus', 'martin', 'bloopert'}, ('q5', 'q7'): {'Hubert', 'Shmingus', 'martin', 'bloopert'}, ('q6', 'q7'): {'Hubert', 'dr blood', 'martin', 'Shmingus', 'bloopert'}}
+{'q1': {'Hubert', 'dr blood', 'martin', 'Zzbazbiz'},
+'q2': {'Hubert', 'martin', 'Zzbazbiz'},
+ 'q3': {'Hubert', 'martin', 'Zzbazbiz', 'Shmingus', 'bloopert'},
+ 'q4': {'Hubert', 'martin', 'Zzbazbiz'},
+ 'q5': {'Shmingus', 'Hubert', 'martin', 'bloopert'},
+ 'q6': {'Hubert', 'dr blood', 'martin', 'Shmingus', 'bloopert'},
+ 'q7': {'Hubert', 'dr blood', 'martin', 'Shmingus', 'bloopert'}}
+{('q1', 'q2'): {'Hubert', 'martin', 'Zzbazbiz'},
+ ('q1', 'q3'): {'Hubert', 'martin', 'Zzbazbiz'},
+ ('q1', 'q4'): {'Hubert', 'martin', 'Zzbazbiz'},
+ ('q1', 'q6'): {'Hubert', 'martin', 'dr blood'},
+ ('q1', 'q7'): {'Hubert', 'martin', 'dr blood'},
+  ('q2', 'q3'): {'Hubert', 'martin', 'Zzbazbiz'},
+   ('q2', 'q4'): {'Hubert', 'martin', 'Zzbazbiz'},
+    ('q3', 'q4'): {'Hubert', 'martin', 'Zzbazbiz'},
+    ('q3', 'q5'): {'Hubert', 'Shmingus', 'martin', 'bloopert'},
+     ('q3', 'q6'): {'Hubert', 'martin', 'bloopert', 'Shmingus'},
+      ('q3', 'q7'): {'Hubert', 'martin', 'bloopert', 'Shmingus'},
+      ('q5', 'q6'): {'Hubert', 'Shmingus', 'martin', 'bloopert'},
+      ('q5', 'q7'): {'Hubert', 'Shmingus', 'martin', 'bloopert'},
+      ('q6', 'q7'): {'Hubert', 'dr blood', 'martin', 'Shmingus', 'bloopert'}}
 [
 	('q1', 'q2', 'q3', 'q4', 3)
 	('q3', 'q5', 'q6', 'q7', 4)
